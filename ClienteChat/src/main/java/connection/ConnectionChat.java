@@ -133,7 +133,10 @@ public class ConnectionChat extends Thread{
 	}
 	
 	 
-	
+	/**
+	 * @author Angie, Alejandra, Melqui, Miguel
+	 * @Method hilo encargado estar escuchando y recibiendo los mensajes entre la persona A y B
+	 */
 	public synchronized void run() {
 
 		while (socket.isConnected()) {
