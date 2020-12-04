@@ -1,5 +1,6 @@
 package controller;
 import java.net.URL;
+
 import java.util.ResourceBundle;
 
 import connection.ConnectionChat;
@@ -17,6 +18,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+/*
+ * Clase encargada de controlar la vista del chat
+ */
 
 public class ControllerChat implements Initializable{
 
@@ -36,18 +41,18 @@ public class ControllerChat implements Initializable{
 
 	private Stage stage;
 	
-	private ConnectionChat chat;
-	
+	/*
+	 * Atributo que representa el nombre del usuario de la aplicación dentro del chat
+	 */
 	public String user;
 	
-	public void setUser(String user) {
-		this.user = user;
-	}
+	/*
+	 * Atributo que representa la conexión por parte del usuario con el servidor
+	 */
+	private ConnectionChat chat;
 	
 	public void init(Parent parent) {
 		this.parent = parent;
-
-		//AnchorPane content = (AnchorPane) parent.getChildrenUnmodifiable().get(1);
 
 		for (int i = 0; i < parent.getChildrenUnmodifiable().size(); i++) {
 			Node node = parent.getChildrenUnmodifiable().get(i);
@@ -81,12 +86,18 @@ public class ControllerChat implements Initializable{
 
 	}
 	
+	/*
+	 * Este método se encarga de enviar el mensaje al hilo encargado de la comunicación con el servidor
+	 * @Param: String data que almacena el mensaje escrito por el usuario
+	 */
 	public void chat(String data) {
 		chat.write(nameLbl.getText() + ": " + data);
-		System.out.println("Metodo 2: " + user);
 
 	}
 	
+	/*
+	 * Este método se encarga de instanciar y ejecutar el hilo encargado de la comunicación entre el cliente y el servidor
+	 */
 	public void conectarChat() throws Exception {
 		chat = new ConnectionChat(this);
 		chat.start();

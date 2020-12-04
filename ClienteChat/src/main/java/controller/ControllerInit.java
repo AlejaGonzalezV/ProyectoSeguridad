@@ -1,5 +1,8 @@
 package controller;
 
+/*
+ * Clase que representa la interfaz gráfica inicial y su control
+ */
 import java.io.IOException;
 
 import javafx.event.ActionEvent;

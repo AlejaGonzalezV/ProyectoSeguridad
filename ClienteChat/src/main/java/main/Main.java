@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/*
+ * Clase que contiene el método main de la aplicación
+ */
 public class Main extends Application{
 	
 public void start(Stage primaryStage) throws Exception {
