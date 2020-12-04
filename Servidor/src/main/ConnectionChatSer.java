@@ -7,6 +7,9 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.net.Socket;
 
+/**
+	Este hilo representa la conexión del servidor con el cliente 
+*/
 public class ConnectionChatSer extends Thread{
 	
 	private int index;
@@ -16,6 +19,9 @@ public class ConnectionChatSer extends Thread{
 	private BufferedReader in;
 	private BigInteger keyp;
 
+	/**
+	 *Constructor del hilo. Empieza el Diffie-Hellman
+	 */
 	public ConnectionChatSer(Server server, Socket socket, int key, int index) throws Exception {
 
 		this.server = server;
@@ -27,14 +33,26 @@ public class ConnectionChatSer extends Thread{
 
 	}
 	
+	/**
+	 * @Method Método responsable de devolver la llave con la primera potencia
+	 * @Return: BigInteger llave
+	 */
 	public BigInteger getKey() {
 		return keyp;
 	}
 	
+	/**
+	 * @Method Método responsable de devolver el número de conexión 
+	 * @Return: int index de conexión del cliente
+	 */
 	public int getIndex() {
 		return index;
 	}
 	
+	
+	/**
+	 * @Method Run del hilo. Es responsable de leer los mensajes del cliente
+	 */
 	@Override
 	public synchronized void run() {
 		
@@ -59,6 +77,9 @@ public class ConnectionChatSer extends Thread{
 		
 	}
 	
+	/**
+	 * @Method Método responsable de escribir los mensajes al cliente
+	 */
 	public void write(String message) {
 		out.println(message);
 	}
