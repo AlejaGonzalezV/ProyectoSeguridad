@@ -5,6 +5,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+/**
+	Esta clase es el servidor del programa. 
+*/
 public class Server {
 	
 	public static int KEY = 1223;
@@ -29,7 +32,11 @@ public class Server {
 			chats.get(i).write(data);
 		}		
 	}
-	
+	/**
+		Este método sirve para enviar la clave  entre los clientes. 
+		@param key este parametro es la clave que se va a enviar
+		@param index este parametro es un índice del cliente.
+	*/
 	public void sendKey(BigInteger key, int index) {
 		
 		if(index == 0) {
@@ -38,7 +45,10 @@ public class Server {
 			chats.get(0).write(key.toString());
 		}
 	}
-
+	/**
+		Este método es el mas importante de todos, debido a que permite inciar las 
+		conexiones con los clientes. Sin este método no funcionaría el chat. 
+	*/
 	public void init() {
 		try {
 			 

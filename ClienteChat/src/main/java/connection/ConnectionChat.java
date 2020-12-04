@@ -51,7 +51,12 @@ public class ConnectionChat extends Thread{
 		}		
 
 	}
-	
+	/**
+	 * @author Angie, Alejandra, Melqui, Miguel
+	 * @Method Método encargado de encriptar los mensajes entre la persona A y B
+	 * @Param: the Msg es el mensaje a encriptar
+	 * @Return: String mensaje encriptado con AES
+	 */
 	public String encriptar(String theMsg) {
 		
 		byte[] theCph;
@@ -82,6 +87,12 @@ public class ConnectionChat extends Thread{
 		
 	}
 	
+	/**
+	 * @author Angie, Alejandra, Melqui, Miguel
+	 * @Method Método encargado de desencriptar los mensajes entre la persona A y B
+	 * @Param: the Msg es el mensaje a desencriptar
+	 * @Return: String mensaje desencriptar
+	 */
 	public String desencriptar(String theMsg) {
 		
 		byte[] theCph;
@@ -112,12 +123,20 @@ public class ConnectionChat extends Thread{
 		
 	}
 	
+	/**
+	 * @author Angie, Alejandra, Melqui, Miguel
+	 * @Method Método encargado de informar si el socket está conectado o no
+	 * @Return: booelan si está conectado el socket
+	 */
 	public boolean connected() {
 		return socket.isConnected();
 	}
 	
 	 
-	
+	/**
+	 * @author Angie, Alejandra, Melqui, Miguel
+	 * @Method hilo encargado estar escuchando y recibiendo los mensajes entre la persona A y B
+	 */
 	public synchronized void run() {
 
 		while (socket.isConnected()) {
@@ -140,6 +159,10 @@ public class ConnectionChat extends Thread{
 		
 	}
 	
+	/**
+	 * @author Angie, Alejandra, Melqui, Miguel
+	 * @Method Método encargado de enviar el mensaje
+	 */
 	public void write(String message) {
 		try {
 			out.println(encriptar(message));
