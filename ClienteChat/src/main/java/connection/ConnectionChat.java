@@ -32,7 +32,7 @@ public class ConnectionChat extends Thread{
 	
 	public ConnectionChat(ControllerChat chat) throws Exception {
 		this.chat = chat;
-		socket = new Socket("localhost", 5600);
+		socket = new Socket("192.168.0.16", 5600);
 		out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		

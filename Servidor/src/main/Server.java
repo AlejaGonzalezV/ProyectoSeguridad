@@ -13,15 +13,9 @@ public class Server {
 	public static int KEY = 1223;
 	private ServerSocket serverSocketChat;
 	private ArrayList<ConnectionChatSer> chats;
-	private int port;
 	private int contador;
 	
 	public Server() {
-		this(8888);
-	}
-	
-	public Server(int port) {
-		this.port = port;
 		chats = new ArrayList<ConnectionChatSer>();
 
 	}
